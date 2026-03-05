@@ -1,0 +1,76 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
+body { display: flex; flex-direction: column; height: 100vh; background-color: #f0f0f0; color: #333; }
+
+/* Toolbars & Layout */
+.toolbar { background-color: #f5f5f5; padding: 8px; border-bottom: 1px solid #ccc; display: flex; gap: 5px; }
+.toolbar button { background: transparent; border: 1px solid transparent; padding: 6px 10px; cursor: pointer; border-radius: 4px; }
+.toolbar button:hover { background-color: #e0e0e0; border: 1px solid #bbb; }
+.separator { width: 1px; height: 24px; background-color: #ccc; margin: 0 5px; }
+
+.main-container { display: flex; flex: 1; overflow: hidden; }
+
+/* Sidebar (Filters) */
+.sidebar { width: 180px; background-color: #fafafa; border-right: 1px solid #ccc; padding: 10px; font-size: 13px; }
+.sidebar h3 { font-size: 12px; text-transform: uppercase; color: #666; margin-bottom: 8px; }
+.sidebar ul { list-style: none; }
+.sidebar li { padding: 6px; cursor: pointer; border-radius: 3px; display: flex; justify-content: space-between; }
+.sidebar li:hover { background-color: #e6e6e6; }
+.sidebar li.active { background-color: #cce8ff; border: 1px solid #99d1ff; font-weight: bold; }
+.sidebar li span { color: #888; font-weight: normal; }
+
+/* Split View (Top Table, Bottom Tabs) */
+.split-view { display: flex; flex-direction: column; flex: 1; }
+.top-pane { flex: 2; overflow: auto; background-color: #fff; }
+.bottom-pane { flex: 1; border-top: 1px solid #ccc; background-color: #f9f9f9; display: flex; flex-direction: column; }
+
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { padding: 8px; text-align: left; border-bottom: 1px solid #eee; border-right: 1px solid #eee; }
+th { background-color: #f5f5f5; position: sticky; top: 0; border-bottom: 1px solid #ccc; font-weight: normal; }
+tr:hover { background-color: #eef7ff; cursor: pointer; }
+tr.selected { background-color: #cce8ff !important; outline: 1px solid #99d1ff; } /* Added row selection */
+
+/* Progress Bar */
+.progress-container { width: 100%; background-color: #ddd; border-radius: 3px; height: 14px; position: relative; }
+.progress-bar { background-color: #4caf50; height: 100%; border-radius: 3px; }
+.progress-text { position: absolute; top: 0; left: 50%; transform: translateX(-50%); font-size: 10px; line-height: 14px; color: #000; }
+
+/* Bottom Tabs */
+.tab-headers { background-color: #f0f0f0; border-bottom: 1px solid #ccc; display: flex; }
+.tab-btn { background: none; border: none; padding: 6px 15px; cursor: pointer; border-right: 1px solid #ccc; font-size: 12px; }
+.tab-btn.active { background-color: #fff; font-weight: bold; border-bottom: 1px solid #fff; margin-bottom: -1px; }
+.tab-content { padding: 10px; font-size: 13px; flex: 1; overflow-y: auto; background: #fff; }
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+/* Status Bar */
+.statusbar { background-color: #f5f5f5; padding: 4px 15px; border-top: 1px solid #ccc; display: flex; justify-content: space-between; font-size: 12px; }
+.online { color: green; } .offline { color: red; }
+
+/* Modals & Settings Layout */
+.modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); }
+.modal-content { background-color: #fff; margin: 5% auto; border: 1px solid #888; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); display: flex; flex-direction: column; }
+#addModal .modal-content { width: 450px; }
+.modal-header { background-color: #f5f5f5; padding: 10px 15px; font-weight: bold; border-bottom: 1px solid #ddd; border-radius: 4px 4px 0 0; display: flex; justify-content: space-between; }
+.close-btn { cursor: pointer; font-size: 18px; color: #888; }
+.close-btn:hover { color: #000; }
+.modal-body { padding: 15px; font-size: 13px; }
+
+/* Form Elements */
+.full-width { width: 100%; margin-bottom: 10px; padding: 5px; box-sizing: border-box; }
+.divider { margin: 15px 0; border: 0; border-top: 1px solid #ddd; }
+.form-row { display: flex; align-items: center; margin-bottom: 10px; gap: 5px; }
+.hidden { display: none !important; }
+.hint-text { color: #666; display: block; margin-bottom: 15px; }
+.action-btn { padding: 6px 15px; background-color: #e1e1e1; border: 1px solid #ccc; border-radius: 3px; cursor: pointer; }
+.action-btn:hover { background-color: #d1d1d1; }
+input[type="text"], input[type="password"], input[type="number"], select { padding: 4px; border: 1px solid #ccc; border-radius: 2px; }
+h4 { margin-bottom: 8px; color: #444; }
+
+/* Settings Sidebar */
+.settings-sidebar { width: 140px; border-right: 1px solid #eee; background-color: #fafafa; padding: 10px 0; }
+.settings-sidebar ul { list-style: none; }
+.settings-sidebar li { padding: 8px 15px; cursor: pointer; border-radius: 0; }
+.settings-sidebar li:hover { background-color: #f0f0f0; }
+.settings-sidebar li.active { background-color: #ddd; font-weight: bold; border-right: 3px solid #666; }
+.settings-pane { display: none; }
+.settings-pane.active { display: block; }
